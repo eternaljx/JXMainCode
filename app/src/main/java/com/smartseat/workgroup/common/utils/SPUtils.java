@@ -62,6 +62,10 @@ public class SPUtils {
         SharedPreferencesCompat.apply(editor);
     }
 
+    private void initLog(){
+        ToaskUtils.showToast("");
+    }
+
     /**
      * 保存数据的方法，只commit一次
      *
