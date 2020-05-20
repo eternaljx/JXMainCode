@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">智能座椅</string>
+    <string name="login_hint_account">用户名</string>
+    <string name="login_hint_phone">手机号</string>
+    <string name="login_hint_password">密码</string>
+    <string name="login_hint_verficode">请输入验证码</string>
+    <string name="setting_service_address">服务器地址(必填)</string>
+    <string name="setting_service_port">端口(必填)</string>
+    <string name="remarks">备注(最多15个字，非必填)</string>
+</resources>

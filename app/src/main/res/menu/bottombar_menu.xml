@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/bb_menu_main"
+        android:icon="@drawable/ic_about"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/bb_menu_chart"
+        android:icon="@drawable/ic_chart"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/bb_menu_timeline"
+        android:icon="@drawable/ic_main"
+        tools:ignore="MenuTitle" />
+</menu>

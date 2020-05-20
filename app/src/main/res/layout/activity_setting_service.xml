@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/login_selected_button_color">
+
+        <RelativeLayout
+            android:id="@+id/rl_setting_service_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="12dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/new_backtop" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_setting_service_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="设置服务器地址"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_setting_service_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="添加"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_setting_service"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <EditText
+                    android:id="@+id/et_setting_service_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/setting_service_address"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:nextFocusDown="@+id/et_login_password_name"
+                    android:textColorHint="@color/login_hint_color"
+                    android:textCursorDrawable="@drawable/shape_edittext_textcusor" />
+
+                <View
+                    android:id="@+id/v_setting_service_address_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/et_setting_service_address"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/login_hint_color" />
+
+                <EditText
+                    android:id="@+id/et_setting_service_port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/v_setting_service_address_line"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    android:hint="@string/setting_service_port"
+                    android:inputType="text"
+                    android:textColorHint="@color/login_hint_color"
+                    android:textCursorDrawable="@drawable/shape_edittext_textcusor" />
+
+                <View
+                    android:id="@+id/v_setting_service_port_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/et_setting_service_port"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/login_hint_color" />
+
+                <EditText
+                    android:id="@+id/et_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/v_setting_service_port_line"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    android:hint="@string/remarks"
+                    android:inputType="text"
+                    android:textColorHint="@color/login_hint_color"
+                    android:textCursorDrawable="@drawable/shape_edittext_textcusor" />
+
+                <View
+                    android:id="@id/v_setting_service_remarks_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/et_remarks"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/login_hint_color" />
+
+                <ImageView
+                    android:id="@+id/iv_setting_service_ercode"
+                    android:layout_width="164dp"
+                    android:layout_height="164dp"
+                    android:layout_below="@+id/v_setting_service_remarks_line"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/bg_saoyisao"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_select_setting_service"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="手动添加" />
+
+        <ListView
+            android:id="@+id/lv_setting_service"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:cacheColorHint="@color/transparent"
+            android:divider="#f5f5f5"
+            android:dividerHeight="10dp"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_setting_service_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_login_unselect_button_corner"
+            android:gravity="center"
+            android:text="保存"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_edit_setting_service_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="140dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/shape_login_red_button_corner"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/edit_save"
+            android:layout_width="140dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/btn_delete"
+            android:background="@drawable/shape_login_select_button_corner"
+            android:gravity="center"
+            android:text="保存"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

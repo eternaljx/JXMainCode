@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/login_selected_button_color">
+
+        <RelativeLayout
+            android:id="@+id/rl_userprotocol_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="12dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/new_backtop" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="隐私保护协议"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv_user_protocal_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_user_protocal_title"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n欢迎使用差旅天下客户端！\n\n在您使用时，需要连接数据网络或者WLAN网络，产生的流量费用请咨询当地运营商。差旅天下非常重视您的隐私保护和个人信息保护。在您使用差旅天下客户端服务前，请您认真阅读《用户协议及隐私政策》和《免责声明》的全部条款，您同意并接受全部条款后，差旅天下将为您提供差旅出行等系统性服务，可能会收集和使用您的相关敏感信息。\n" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
