@@ -48,16 +48,16 @@ public class AdjustFragment extends Fragment {
     }
 
     private void initView(View view) {
-        mViewKaobei = view.findViewById(R.id.v_kaobei);
-        mIvKaobeiSelected = view.findViewById(R.id.iv_kaobei_selected);
-        mViewToutuo = view.findViewById(R.id.v_toutuo);
-        mIvToutuoSelected = view.findViewById(R.id.iv_toutuo_selected);
-        mViewYaotuo = view.findViewById(R.id.v_yaotuo);
-        mIvYaotuoSelected = view.findViewById(R.id.iv_yaotuo_selected);
-        mViewTuituo = view.findViewById(R.id.v_tuituo);
-        mIvTuituoSelected = view.findViewById(R.id.iv_tuituo_selected);
-        mViewQianhou = view.findViewById(R.id.v_qianhou);
-        mIvQianhouSelected = view.findViewById(R.id.iv_qianhou_selected);
+//        mViewKaobei = view.findViewById(R.id.v_kaobei);
+//        mIvKaobeiSelected = view.findViewById(R.id.iv_kaobei_selected);
+//        mViewToutuo = view.findViewById(R.id.v_toutuo);
+//        mIvToutuoSelected = view.findViewById(R.id.iv_toutuo_selected);
+//        mViewYaotuo = view.findViewById(R.id.v_yaotuo);
+//        mIvYaotuoSelected = view.findViewById(R.id.iv_yaotuo_selected);
+//        mViewTuituo = view.findViewById(R.id.v_tuituo);
+//        mIvTuituoSelected = view.findViewById(R.id.iv_tuituo_selected);
+//        mViewQianhou = view.findViewById(R.id.v_qianhou);
+//        mIvQianhouSelected = view.findViewById(R.id.iv_qianhou_selected);
     }
 
     private void initEvent() {
