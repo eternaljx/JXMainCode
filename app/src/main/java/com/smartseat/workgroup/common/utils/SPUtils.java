@@ -6,10 +6,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.smartseat.workgroup.main.model.SettingServiceModel;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,11 +14,8 @@ import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 public class SPUtils {
@@ -388,32 +381,6 @@ public class SPUtils {
             }
             editor.commit();
         }
-    }
-
-    /**
-     * 存储服务器数据集合
-     *
-     * @param settingService
-     */
-    public static void saveSettingServiceList(Context context, List<SettingServiceModel> settingService) {
-        Gson gson = new Gson();
-        String data = gson.toJson(settingService);
-        SPUtils.put(context, "settingList", data);
-    }
-
-    /**
-     * 获取服务器数据集合
-     *
-     * @return
-     */
-    public static List<SettingServiceModel> getSettingServiceList(Context context) {
-        String data = (String) SPUtils.get(context, "settingList", "");
-        Gson gson = new Gson();
-        Type listType = new TypeToken<List<SettingServiceModel>>() {
-        }.getType();
-        List<SettingServiceModel> list = gson.fromJson(data, listType);
-        if (list == null || list.size() < 1) return new ArrayList<>();
-        return list;
     }
 
 }

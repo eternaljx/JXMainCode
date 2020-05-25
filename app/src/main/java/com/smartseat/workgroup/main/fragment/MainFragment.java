@@ -1,5 +1,6 @@
 package com.smartseat.workgroup.main.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.SPUtils;
+import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 
 /**
  * 首页页面
@@ -59,6 +62,8 @@ public class MainFragment extends Fragment {
     private ImageView mIvOneKeyResetModelDelete;
     //设置弹框--一键复位模式清除选中图片控件
     private ImageView mIvOneKeyResetModelDeleteSelected;
+    //是否登录过
+    private boolean mIsLogin;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -70,6 +75,7 @@ public class MainFragment extends Fragment {
         //通过参数中的布局填充获取对应布局
         View view = inflater.inflate(R.layout.activity_main_fragment, container, false);
         initView(view);
+        initData();
         initEvent();
         return view;
     }
@@ -95,6 +101,10 @@ public class MainFragment extends Fragment {
         mIvOneKeyResetModelSaveSelected = view.findViewById(R.id.iv_onekeyreset_save_selected);
         mIvOneKeyResetModelDelete = view.findViewById(R.id.iv_onekeyreset_delete);
         mIvOneKeyResetModelDeleteSelected = view.findViewById(R.id.iv_onekeyreset_delete_selected);
+    }
+
+    private void initData() {
+        mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
     }
 
     private void initEvent() {
@@ -125,22 +135,30 @@ public class MainFragment extends Fragment {
         mRlSleepModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //弹出pop设置窗口，同时点亮设置里的睡眠模式
-                setSleepModelSelectedStatus();
-                mRlPopLayout.setVisibility(View.VISIBLE);
-                mIvSetting.setVisibility(View.GONE);
-
+                if (mIsLogin) {
+                    //弹出pop设置窗口，同时点亮设置里的睡眠模式
+                    setSleepModelSelectedStatus();
+                    mRlPopLayout.setVisibility(View.VISIBLE);
+                    mIvSetting.setVisibility(View.GONE);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击一键复位模式
         mRlOneKeyResetModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //弹出pop设置窗口，同时点亮设置里的一键复位模式
-                setOnKeyResetModelSelected();
-                mRlPopLayout.setVisibility(View.VISIBLE);
-                mIvSetting.setVisibility(View.GONE);
-
+                if (mIsLogin) {
+                    //弹出pop设置窗口，同时点亮设置里的一键复位模式
+                    setOnKeyResetModelSelected();
+                    mRlPopLayout.setVisibility(View.VISIBLE);
+                    mIvSetting.setVisibility(View.GONE);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击设置弹框--存储睡眠模式

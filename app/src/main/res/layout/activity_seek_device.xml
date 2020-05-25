@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llContext"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <!-- 标题栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#222222"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- 返回图标 -->
+        <TextView
+            android:id="@+id/imgbtn_top_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/device_back"
+            android:gravity="center"
+            android:src="@drawable/iphone"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="配置设备"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="50dp"
+        android:text="连接WLAN"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="请确认需要配置的目标路由器，输入密码进行适配连接如需更改，请重新选择WIFI"
+        android:textColor="#fff"
+        android:textSize="13sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_bg"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgSSID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|left"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_ssid" />
+
+        <EditText
+            android:id="@+id/tvSSID"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgSSID"
+            android:background="#00000000"
+            android:gravity="left|center_vertical"
+            android:hint="路由WLAN账号"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imgSelectSSID"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tvSSID"
+            android:src="@drawable/icon_arrow_down" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_bg">
+
+        <ImageView
+            android:id="@+id/left_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_pwd" />
+
+        <EditText
+            android:id="@+id/etPWD"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/left_pwd"
+            android:background="#00000000"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textColorHint="#fff" />
+
+        <ImageView
+            android:id="@+id/imgShowPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/hint_pwd" />
+
+    </RelativeLayout>
+
+    <!-- 加密方式 -->
+    <LinearLayout
+        android:id="@+id/llSetPwd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10px"
+            android:gravity="center"
+            android:text="加密方式:"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/wps"
+            android:layout_width="200sp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/textview_bg"
+            android:entries="@array/key_labels"
+
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <!-- 一键配置 -->
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_up_down_bg"
+        android:gravity="center"
+        android:text="配  置"
+        android:textColor="#fff"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

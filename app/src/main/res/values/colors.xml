@@ -25,4 +25,5 @@
     <color name="blue">#2A91BD</color>
     <color name="orange">#D75F46</color>
     <color name="red">#FF432F</color>
+    <color name="transparent_backgrounds">#00000000</color>
 </resources>

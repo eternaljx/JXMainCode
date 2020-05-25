@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a0000000"
+    android:orientation="vertical">
+
+    <!-- 上间隙 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:onClick="hidePop" />
+
+    <!-- 中间 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+        <!-- 左间隙 -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="hidePop" />
+
+        <!-- 内容 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:background="#222222">
+
+                <TextView
+                    android:id="@+id/titles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="10dp"
+                    android:text="选择路由器"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgDis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dp"
+                    android:clickable="true"
+                    android:onClick="hidePop"
+                    android:src="@drawable/dismiss" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8" />
+
+            <!-- 模式选择 -->
+            <ListView
+                android:id="@+id/lvModer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="165"
+                android:background="#ccc"
+                android:divider="#4D3E30"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+        <!-- 右间隙 -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="hidePop" />
+
+    </LinearLayout>
+
+    <!-- 下间隙 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:onClick="hidePop" />
+
+</LinearLayout>

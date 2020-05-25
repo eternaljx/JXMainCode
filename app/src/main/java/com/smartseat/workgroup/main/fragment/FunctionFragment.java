@@ -1,5 +1,6 @@
 package com.smartseat.workgroup.main.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.SPUtils;
+import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 
 /**
  * 功能页面
@@ -112,6 +115,7 @@ public class FunctionFragment extends Fragment {
     private int mHeatingCount = 1;
     private int mVentilationCount = 1;
     private int mMassageCount = 1;
+    private boolean mIsLogin;
 
     public static FunctionFragment newInstance() {
         return new FunctionFragment();
@@ -182,7 +186,7 @@ public class FunctionFragment extends Fragment {
     }
 
     private void initData() {
-
+        mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
     }
 
     private void initEvent() {
@@ -190,25 +194,30 @@ public class FunctionFragment extends Fragment {
         mRlHeatingModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mHeatingCount == 1) {//1
-                    setHeatingModelSelected();
-                    openHeatingOneGearView();
-                    mHeatingCount = 2;
-                    //TODO 存储加热一档数据
-                } else if (mHeatingCount == 2) {//2
-                    setHeatingModelSelected();
-                    openHeatingTwoGearView();
-                    mHeatingCount = 3;
-                    //TODO 存储加热二档数据
-                } else if (mHeatingCount == 3) {//3
-                    setHeatingModelSelected();
-                    openHeatingThreeGearView();
-                    mHeatingCount = 0;
-                    //TODO 存储加热三档数据
-                } else {//0
-                    //TODO 清除加热档位数据（一、二、三档位）
-                    closeHeatingGearView();
-                    mHeatingCount = 1;
+                if (mIsLogin) {
+                    if (mHeatingCount == 1) {//1
+                        setHeatingModelSelected();
+                        openHeatingOneGearView();
+                        mHeatingCount = 2;
+                        //TODO 存储加热一档数据
+                    } else if (mHeatingCount == 2) {//2
+                        setHeatingModelSelected();
+                        openHeatingTwoGearView();
+                        mHeatingCount = 3;
+                        //TODO 存储加热二档数据
+                    } else if (mHeatingCount == 3) {//3
+                        setHeatingModelSelected();
+                        openHeatingThreeGearView();
+                        mHeatingCount = 0;
+                        //TODO 存储加热三档数据
+                    } else {//0
+                        //TODO 清除加热档位数据（一、二、三档位）
+                        closeHeatingGearView();
+                        mHeatingCount = 1;
+                    }
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
                 }
             }
         });
@@ -216,25 +225,30 @@ public class FunctionFragment extends Fragment {
         mRlVentilationModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mVentilationCount == 1) {
-                    setVentilationModelSelected();
-                    openVentilationOneGearView();
-                    mVentilationCount = 2;
-                    //TODO 存储通风一档数据
-                } else if (mVentilationCount == 2) {
-                    setVentilationModelSelected();
-                    openVentilationTwoGearView();
-                    mVentilationCount = 3;
-                    //TODO 存储通风二档数据
-                } else if (mVentilationCount == 3) {
-                    setVentilationModelSelected();
-                    openVentilationThreeGearView();
-                    mVentilationCount = 0;
-                    //TODO 存储通风三档数据
+                if (mIsLogin) {
+                    if (mVentilationCount == 1) {
+                        setVentilationModelSelected();
+                        openVentilationOneGearView();
+                        mVentilationCount = 2;
+                        //TODO 存储通风一档数据
+                    } else if (mVentilationCount == 2) {
+                        setVentilationModelSelected();
+                        openVentilationTwoGearView();
+                        mVentilationCount = 3;
+                        //TODO 存储通风二档数据
+                    } else if (mVentilationCount == 3) {
+                        setVentilationModelSelected();
+                        openVentilationThreeGearView();
+                        mVentilationCount = 0;
+                        //TODO 存储通风三档数据
+                    } else {
+                        closeVentilationGearView();
+                        mVentilationCount = 1;
+                        //TODO 清除通风档位数据（一、二、三档位）
+                    }
                 } else {
-                    closeVentilationGearView();
-                    mVentilationCount = 1;
-                    //TODO 清除通风档位数据（一、二、三档位）
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
                 }
             }
         });
@@ -242,20 +256,25 @@ public class FunctionFragment extends Fragment {
         mRlMassageModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mMassageCount == 1) {
-                    setmRlMassageModelSelected();
-                    openMassageOneGearView();
-                    mMassageCount = 2;
-                    //TODO 存储按摩一档数据
-                } else if (mMassageCount == 2) {
-                    setmRlMassageModelSelected();
-                    openMassageTwoGearView();
-                    mMassageCount = 0;
-                    //TODO 存储按摩二档数据
+                if (mIsLogin) {
+                    if (mMassageCount == 1) {
+                        setmRlMassageModelSelected();
+                        openMassageOneGearView();
+                        mMassageCount = 2;
+                        //TODO 存储按摩一档数据
+                    } else if (mMassageCount == 2) {
+                        setmRlMassageModelSelected();
+                        openMassageTwoGearView();
+                        mMassageCount = 0;
+                        //TODO 存储按摩二档数据
+                    } else {
+                        closeMassageGearView();
+                        mMassageCount = 1;
+                        //TODO 清除按摩档位数据（一、二档位）
+                    }
                 } else {
-                    closeMassageGearView();
-                    mMassageCount = 1;
-                    //TODO 清除按摩档位数据（一、二档位）
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
                 }
             }
         });
@@ -263,18 +282,22 @@ public class FunctionFragment extends Fragment {
         mRlAmbientModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mIsOpenVembientShadow) {
-                    openAmbientShadowView();
-                    setAmbientModelSelected();
-                    mIsOpenVembientShadow = false;
-                    //TODO 存储氛围灯数据
+                if (mIsLogin) {
+                    if (mIsOpenVembientShadow) {
+                        openAmbientShadowView();
+                        setAmbientModelSelected();
+                        mIsOpenVembientShadow = false;
+                        //TODO 存储氛围灯数据
+                    } else {
+                        closeAmbientShadowView();
+                        setAmbientModelUnSelected();
+                        mIsOpenVembientShadow = true;
+                        //TODO 清除氛围灯数据
+                    }
                 } else {
-                    closeAmbientShadowView();
-                    setAmbientModelUnSelected();
-                    mIsOpenVembientShadow = true;
-                    //TODO 清除氛围灯数据
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
                 }
-
             }
         });
     }

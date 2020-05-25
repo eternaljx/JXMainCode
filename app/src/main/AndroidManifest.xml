@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.smartseat.workgroup"
     android:versionCode="100"
-    android:versionName="1.0.0"
-    >
+    android:versionName="1.0.0">
 
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 摄像头权限 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission
         android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />
@@ -82,15 +82,13 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <!-- android:windowSoftInputMode="stateVisible|adjustResize"-->
+
         <activity android:name=".main.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".main.SeatMainActivity"
             android:screenOrientation="portrait" />
@@ -100,7 +98,12 @@
         <activity
             android:name=".main.activity.SettingActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".main.activity.AKeyConfigActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".main.activity.ConnectionDeviceActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
     </application>
 
 </manifest>

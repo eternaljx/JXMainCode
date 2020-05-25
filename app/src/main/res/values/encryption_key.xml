@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="key_labels">
+        <item>NONE</item>
+        <item>WEP</item>
+        <item>WEP_OPEN</item>
+        <item>WPA_TKP</item>
+        <item>WPA_AES</item>
+        <item>WPA2_TKIP</item>
+        <item>WPA2_AES</item>
+        <item>WPA/WPA2_TKIP</item>
+        <item>WPA/WPA2_AES</item>
+    </string-array>
+</resources>
