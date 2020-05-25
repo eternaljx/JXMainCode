@@ -21,7 +21,6 @@
             android:layout_marginLeft="35dp"
             android:layout_marginTop="140dp" />
 
-
         <ImageView
             android:id="@+id/iv_kaobei_selected"
             android:layout_width="140dp"
@@ -32,47 +31,13 @@
             android:visibility="visible" />
 
         <ImageView
-            android:id="@+id/iv_kaobei_before_view_click"
-            android:layout_width="50dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="280dp"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_before_white_view_click"
-            android:layout_width="50dp"
-            android:layout_height="190dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="250dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_kaobei_before_white_view"
             android:layout_width="50dp"
             android:layout_height="190dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="250dp"
             android:background="@drawable/icon_kaobei_before_h720"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_before_selected_view"
-            android:layout_width="50dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="280dp"
-            android:background="@drawable/icon_kaobei_before_selected_h720"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_after_view_click"
-            android:layout_width="75dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="234dp"
-            android:visibility="gone" />
-
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/iv_kaobei_after_view"
@@ -81,7 +46,7 @@
             android:layout_marginLeft="160dp"
             android:layout_marginTop="233dp"
             android:background="@drawable/icon_kaobei_after"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <View
             android:id="@+id/v_toutuo_click"
@@ -100,28 +65,12 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_toutuo_top_view_click"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="76dp"
-            android:layout_marginTop="150dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_toutuo_top_view"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="76dp"
             android:layout_marginTop="150dp"
             android:background="@drawable/icon_touzhen_top"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_toutuo_bottom_view_click"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="105dp"
-            android:layout_marginTop="240dp"
             android:visibility="gone" />
 
 
@@ -203,28 +152,12 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_tuituo_before_view_click"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="210dp"
-            android:layout_marginTop="432dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_tuituo_before_view"
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_marginLeft="210dp"
             android:layout_marginTop="432dp"
             android:background="@drawable/icon_tuituo_before"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_tuituo_after_view_click"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="430dp"
-            android:layout_toRightOf="@+id/iv_tuituo_selected"
             android:visibility="gone" />
 
         <ImageView
@@ -270,15 +203,6 @@
             android:background="@drawable/icon_qianhou_before"
             android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/iv_qianhou_after_view_click"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="490dp"
-            android:layout_toRightOf="@+id/iv_qianhou_selected"
-            android:background="@color/red"
-            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_qianhou_after_view"

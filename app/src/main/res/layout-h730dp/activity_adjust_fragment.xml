@@ -32,22 +32,6 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_kaobei_before_view_click"
-            android:layout_width="50dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="280dp"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_before_white_view_click"
-            android:layout_width="40dp"
-            android:layout_height="140dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="305dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_kaobei_before_white_view"
             android:layout_width="40dp"
             android:layout_height="140dp"
@@ -55,30 +39,6 @@
             android:layout_marginTop="305dp"
             android:background="@drawable/icon_kaobei_before_h730"
             android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_before_selected_view_click"
-            android:layout_width="70dp"
-            android:layout_height="175dp"
-            android:layout_marginTop="285dp"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_before_selected_view"
-            android:layout_width="70dp"
-            android:layout_height="175dp"
-            android:layout_marginTop="285dp"
-            android:background="@drawable/icon_kaobei_before_selected_h730"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_kaobei_after_view_click"
-            android:layout_width="76dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="178dp"
-            android:layout_marginTop="265dp"
-            android:visibility="gone" />
-
 
         <ImageView
             android:id="@+id/iv_kaobei_after_view"
@@ -106,14 +66,6 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_toutuo_top_view_click"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="174dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_toutuo_top_view"
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -121,15 +73,6 @@
             android:layout_marginTop="174dp"
             android:background="@drawable/icon_touzhen_top"
             android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_toutuo_bottom_view_click"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="115dp"
-            android:layout_marginTop="272dp"
-            android:visibility="gone" />
-
 
         <ImageView
             android:id="@+id/iv_toutuo_bottom_view"
@@ -173,15 +116,6 @@
             android:background="@drawable/icon_yaotuo_top_h600"
             android:visibility="gone" />
 
-
-        <ImageView
-            android:id="@+id/iv_yaotuo_bottom_view_click"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="183dp"
-            android:layout_marginTop="405dp"
-            android:visibility="gone" />
-
         <ImageView
             android:id="@+id/iv_yaotuo_bottom_view"
             android:layout_width="28dp"
@@ -192,28 +126,12 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_yaotuo_left_view_click"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="122dp"
-            android:layout_marginTop="373dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_yaotuo_left_view"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginLeft="122dp"
             android:layout_marginTop="373dp"
             android:background="@drawable/icon_yaotuo_left_h600"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/iv_yaotuo_right_view_click"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="179dp"
-            android:layout_marginTop="348dp"
             android:visibility="gone" />
 
         <ImageView
@@ -242,14 +160,6 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_tuituo_before_view_click"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="500dp"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_tuituo_before_view"
             android:layout_width="40dp"
             android:layout_height="30dp"
@@ -259,21 +169,12 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_tuituo_after_view_click"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="490dp"
-            android:layout_toRightOf="@+id/iv_tuituo_selected"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_tuituo_after_view"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="490dp"
-            android:layout_toRightOf="@+id/iv_tuituo_selected"
+            android:layout_toRightOf="@+id/iv_tuituo_before_view"
             android:background="@drawable/icon_tuituo_after"
             android:visibility="gone" />
 
@@ -294,7 +195,7 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_qianhou_befroe_view_click"
+            android:id="@+id/iv_qianhou_before_view_click"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="145dp"
@@ -302,7 +203,7 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_qianhou_befroe_view"
+            android:id="@+id/iv_qianhou_before_view"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="145dp"
@@ -311,21 +212,12 @@
             android:visibility="gone" />
 
         <ImageView
-            android:id="@+id/iv_qianhou_after_view_click"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="560dp"
-            android:layout_toRightOf="@+id/iv_qianhou_selected"
-            android:visibility="gone" />
-
-        <ImageView
             android:id="@+id/iv_qianhou_after_view"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="118dp"
             android:layout_marginTop="560dp"
-            android:layout_toRightOf="@+id/iv_qianhou_selected"
+            android:layout_toRightOf="@+id/iv_qianhou_before_view"
             android:background="@drawable/icon_qianhou_after"
             android:visibility="gone" />
 
