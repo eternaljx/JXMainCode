@@ -138,6 +138,7 @@ public class MainFragment extends Fragment {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的睡眠模式
                     setSleepModelSelectedStatus();
+                    SPUtils.put(getContext(),"sleepModel","1");
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
@@ -153,6 +154,7 @@ public class MainFragment extends Fragment {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的一键复位模式
                     setOnKeyResetModelSelected();
+                    SPUtils.put(getContext(),"onKeyResetModel","1");
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
