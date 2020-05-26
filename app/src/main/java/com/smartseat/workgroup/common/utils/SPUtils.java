@@ -454,7 +454,7 @@ public class SPUtils {
      * @param username
      */
     public static void saveSleepModelData(Context context, String username) {
-        SPUtils.put(context, "openSleep" + username, 1);
+        SPUtils.put(context, "openSleep" + username, true);
     }
 
     /**
@@ -464,8 +464,8 @@ public class SPUtils {
      * @param username
      * @return
      */
-    public static int getSleepModelData(Context context, String username) {
-        return (int) SPUtils.get(context, "openSleep" + username, "");
+    public static boolean getSleepModelData(Context context, String username) {
+        return (boolean) SPUtils.get(context, "openSleep" + username, false);
     }
 
     /**
@@ -475,7 +475,7 @@ public class SPUtils {
      * @param username
      */
     public static void saveOneKeyResetData(Context context, String username) {
-        SPUtils.put(context, "oneKeyRest" + username, 1);
+        SPUtils.put(context, "oneKeyRest" + username, true);
     }
 
     /**
@@ -485,8 +485,8 @@ public class SPUtils {
      * @param username
      * @return
      */
-    public static int getOneKeyResetData(Context context, String username) {
-        return (int) SPUtils.get(context, "oneKeyRest" + username, "");
+    public static boolean getOneKeyResetData(Context context, String username) {
+        return (boolean) SPUtils.get(context, "oneKeyRest" + username, false);
     }
 
 

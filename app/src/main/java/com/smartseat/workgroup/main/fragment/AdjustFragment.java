@@ -11,6 +11,8 @@ import com.smartseat.workgroup.R;
 import com.smartseat.workgroup.common.utils.SPUtils;
 import com.smartseat.workgroup.main.model.AdjustModel;
 
+import static com.smartseat.workgroup.common.utils.SPUtils.ADJUST_MODEL_KEY;
+
 /**
  * 调节页面
  *
@@ -65,7 +67,41 @@ public class AdjustFragment extends Fragment {
     //用户名
     private String username;
     //调节页面数据模型初始化
-    private AdjustModel mAdjustModel = new AdjustModel();
+    private AdjustModel mAdjustModel;
+    //是否打开靠背
+    private boolean mIsOpenKaobei;
+    //是否打开头枕
+    private boolean mIsOpenTouzhen;
+    //是否打开腰枕
+    private boolean mIsOpenYaozhen;
+    //是否打开腿托
+    private boolean mIsOpenTuiTuo;
+    //是否打开座椅前后
+    private boolean mIsOpenQianhou;
+    //靠背向前调节
+    private int mKaobeiBeforeFlag;
+    //靠背向后调节
+    private int mKaobeiAfterFlag;
+    //头枕向上调节
+    private int mTouzhenTopFlag;
+    //头枕向下调节
+    private int mTouzhenBottomFlag;
+    //腰枕向上调节
+    private int mYaozhenTopFlag;
+    //腰枕向下调节
+    private int mYaozhenBottomFlag;
+    //腰枕向左调节
+    private int mYaozhenLeftFlag;
+    //腰枕向右调节
+    private int mYaozhenRightFlag;
+    //腿托向前调节
+    private int mTuituoBeforeFlag;
+    //腿托向后调节
+    private int mTuituoAfterFlag;
+    //座椅向前调节
+    private int mQianhouBeforeFlag;
+    //座椅向后调节
+    private int mQianhouAfterFlag;
 
 
     public static AdjustFragment newInstance() {
@@ -111,6 +147,94 @@ public class AdjustFragment extends Fragment {
 
     private void initData() {
         username = (String) SPUtils.get(getContext(), "username", "");
+        mAdjustModel = (AdjustModel) SPUtils.getAdjustModel(getContext(), username);
+        if (mAdjustModel != null) {
+            mIsOpenKaobei = mAdjustModel.isOpenKaobei();
+            mIsOpenTouzhen = mAdjustModel.isOpenTouzhen();
+            mIsOpenYaozhen = mAdjustModel.isOpenYaozhen();
+            mIsOpenTuiTuo = mAdjustModel.isOpenTuituo();
+            mIsOpenQianhou = mAdjustModel.isOpenQianhou();
+            if (mIsOpenKaobei) {//打开靠背
+                mKaobeiBeforeFlag = mAdjustModel.getKaobeiBeforeFlag();
+                mKaobeiAfterFlag = mAdjustModel.getKaobeiAfterFlag();
+                if (mKaobeiBeforeFlag == 1) {
+                    showKaobeiBeforeView();
+                } else if (mKaobeiAfterFlag == 1) {
+                    showKaobeiAfterView();
+                } else {
+                    showKaobeiBeforeAndAfterView();
+                }
+            } else {
+                mViewKaobeiBefore.setVisibility(View.GONE);
+                mViewKaobeiAfter.setVisibility(View.GONE);
+            }
+            if (mIsOpenTouzhen) {//打开头枕
+                mTouzhenTopFlag = mAdjustModel.getTouzhenTopFlag();
+                mTouzhenBottomFlag = mAdjustModel.getTouzhenBottomFlag();
+                if (mTouzhenTopFlag == 1) {
+                    showTouzhenTopView();
+                } else if (mTouzhenBottomFlag == 1) {
+                    showTouzhenBottomView();
+                } else {
+                    showTouzhenTopAndBottomView();
+                }
+            } else {
+                mViewToutuoTop.setVisibility(View.GONE);
+                mViewToutuoBottom.setVisibility(View.GONE);
+            }
+            if (mIsOpenYaozhen) {//打开腰枕
+                mYaozhenTopFlag = mAdjustModel.getYaozhenTopFlag();
+                mYaozhenBottomFlag = mAdjustModel.getYaozhenBottomFlag();
+                mYaozhenLeftFlag = mAdjustModel.getYaozhenLeftFlag();
+                mYaozhenRightFlag = mAdjustModel.getYaozhenRightFlag();
+                if (mYaozhenTopFlag == 1) {
+                    showYaotuoTopView();
+                } else if (mYaozhenBottomFlag == 1) {
+                    showYaotuoBottomView();
+                } else if (mYaozhenLeftFlag == 1) {
+                    showYaotuoLeftView();
+                } else if (mYaozhenRightFlag == 1) {
+                    showYaotuoRightView();
+                } else {
+                    showYaotuoClickView();
+                }
+            } else {
+                mViewYaotuoTop.setVisibility(View.GONE);
+                mViewYaotuoBottom.setVisibility(View.GONE);
+                mViewYaotuoLeft.setVisibility(View.GONE);
+                mViewYaotuoRight.setVisibility(View.GONE);
+            }
+            if (mIsOpenTuiTuo) {//打开腿托
+                mTuituoBeforeFlag = mAdjustModel.getTuituoBeforeFlag();
+                mTuituoAfterFlag = mAdjustModel.getTuituoAfterFlag();
+                if (mTuituoBeforeFlag == 1) {
+                    showTuituoBeforeView();
+                } else if (mTuituoAfterFlag == 1) {
+                    showTuituoAfterView();
+                } else {
+                    showTuituoView();
+                }
+            } else {
+                mViewTuituoBefore.setVisibility(View.GONE);
+                mViewTuituoAfter.setVisibility(View.GONE);
+            }
+            if (mIsOpenQianhou) {//打开座椅前后
+                mQianhouBeforeFlag = mAdjustModel.getQianhouBeforeFlag();
+                mQianhouAfterFlag = mAdjustModel.getQianhouAfterFlag();
+                if (mQianhouBeforeFlag == 1) {
+                    showQianhouBeforeView();
+                } else if (mQianhouAfterFlag == 1) {
+                    showQianhouAfterView();
+                } else {
+                    showQianhouView();
+                }
+            } else {
+                mViewQianhouBefore.setVisibility(View.GONE);
+                mViewQianhouAfter.setVisibility(View.GONE);
+            }
+        } else {
+            mAdjustModel = new AdjustModel();
+        }
     }
 
     private void initEvent() {
@@ -429,6 +553,8 @@ public class AdjustFragment extends Fragment {
      * 功能失效方法
      */
     private void functionInvalid() {
+        //移除调节页面存储数据
+        SPUtils.remove(getContext(), ADJUST_MODEL_KEY);
         mViewKaobeiClick.setVisibility(View.GONE);
         mViewKaobeiSelected.setVisibility(View.GONE);
         mViewKaobeiBefore.setVisibility(View.GONE);

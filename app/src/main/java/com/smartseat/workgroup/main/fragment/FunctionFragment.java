@@ -118,7 +118,15 @@ public class FunctionFragment extends Fragment {
     private int mMassageCount = 1;
     private boolean mIsLogin;
     private String userName;
-    private FunctionModel mFunctionModel = new FunctionModel();
+    private FunctionModel mFunctionModel;
+    //是否开启加热
+    private boolean mIsOpenHeating;
+    //是否开启通风
+    private boolean mIsOpenVentilation;
+    //是否开启按摩
+    private boolean mIsOpenMassge;
+    //是否开启氛围灯
+    private boolean mIsOpenVembient;
 
     public static FunctionFragment newInstance() {
         return new FunctionFragment();
@@ -191,6 +199,77 @@ public class FunctionFragment extends Fragment {
     private void initData() {
         mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
         userName = (String) SPUtils.get(getContext(), "username", "");
+        mFunctionModel = (FunctionModel) SPUtils.getFunctionModel(getContext(), userName);
+        if (mFunctionModel != null) {
+            mIsOpenHeating = mFunctionModel.isOpenHeatingGear();
+            mIsOpenVentilation = mFunctionModel.isOpenVentilation();
+            mIsOpenMassge = mFunctionModel.isOpenMassage();
+            mIsOpenVembient = mFunctionModel.isOpenVembient();
+            if (mIsOpenHeating) {//是否开启加热
+                mHeatingCount = mFunctionModel.getHeatingGear();
+                if (mHeatingCount == 1) {//加热一档
+                    setHeatingModelSelected();
+                    openHeatingOneGearView();
+                    mHeatingCount = 2;
+                } else if (mHeatingCount == 2) {//加热二档
+                    setHeatingModelSelected();
+                    openHeatingTwoGearView();
+                    mHeatingCount = 3;
+                } else if (mHeatingCount == 3) {//加热三档
+                    setHeatingModelSelected();
+                    openHeatingThreeGearView();
+                    mHeatingCount = 0;
+                }
+            } else {
+                closeHeatingGearView();
+                mHeatingCount = 1;
+            }
+            if (mIsOpenVentilation) {//是否开启通风
+                mVentilationCount = mFunctionModel.getVentilationGear();
+                if (mVentilationCount == 1) {//通风一档
+                    setVentilationModelSelected();
+                    openVentilationOneGearView();
+                    mVentilationCount = 2;
+                } else if (mVentilationCount == 2) {//通风二档
+                    setVentilationModelSelected();
+                    openVentilationTwoGearView();
+                    mVentilationCount = 3;
+                } else if (mVentilationCount == 3) {//通风三档
+                    setVentilationModelSelected();
+                    openVentilationThreeGearView();
+                    mVentilationCount = 0;
+                }
+            } else {
+                closeVentilationGearView();
+                mVentilationCount = 1;
+            }
+            if (mIsOpenMassge) {//是否开启按摩
+                mMassageCount = mFunctionModel.getMassageGear();
+                if (mMassageCount == 1) {//按摩一档
+                    setmRlMassageModelSelected();
+                    openMassageOneGearView();
+                    mMassageCount = 2;
+                } else if (mMassageCount == 2) {//按摩二档
+                    setmRlMassageModelSelected();
+                    openMassageTwoGearView();
+                    mMassageCount = 0;
+                }
+            } else {
+                closeMassageGearView();
+                mMassageCount = 1;
+            }
+            if (mIsOpenVembient) {//是否开启氛围灯
+                openAmbientShadowView();
+                setAmbientModelSelected();
+                mIsOpenVembientShadow = false;
+            } else {
+                closeAmbientShadowView();
+                setAmbientModelUnSelected();
+                mIsOpenVembientShadow = true;
+            }
+        } else {
+            mFunctionModel = new FunctionModel();
+        }
     }
 
     private void initEvent() {

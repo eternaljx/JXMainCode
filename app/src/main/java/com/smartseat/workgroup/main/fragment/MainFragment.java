@@ -66,6 +66,10 @@ public class MainFragment extends Fragment {
     private boolean mIsLogin;
     //用户名
     private String mUserName;
+    //是否开启睡眠模式标识
+    private boolean mIsOpenSleepModel;
+    //是否开启一键复位模式标识
+    private boolean mIsOpenOneKeyResetModel;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -107,7 +111,19 @@ public class MainFragment extends Fragment {
 
     private void initData() {
         mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
-        mUserName = (String) SPUtils.get(getContext(), "", "username");
+        mUserName = (String) SPUtils.get(getContext(), "username", "");
+        mIsOpenSleepModel = (boolean) SPUtils.get(getContext(), "openSleep", false);
+        mIsOpenOneKeyResetModel = (boolean) SPUtils.get(getContext(), "oneKeyRest", false);
+        if (mIsOpenSleepModel) {//判断时候开启睡眠模式
+            setSleepModelSelectedStatus();
+        } else {
+            setSleepModelUnSelectedStatus();
+        }
+        if (mIsOpenOneKeyResetModel) {//判断时候开启一键复位模式
+            setOnKeyResetModelSelected();
+        } else {
+            setOnKeyResetModelUnSelected();
+        }
     }
 
     private void initEvent() {
