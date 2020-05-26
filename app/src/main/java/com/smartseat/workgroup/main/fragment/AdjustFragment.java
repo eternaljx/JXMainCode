@@ -159,10 +159,10 @@ public class AdjustFragment extends Fragment {
                 mKaobeiAfterFlag = mAdjustModel.getKaobeiAfterFlag();
                 if (mKaobeiBeforeFlag == 1) {
                     showKaobeiBeforeView();
-                } else if (mKaobeiAfterFlag == 1) {
+                    mViewKaobeiAfter.setVisibility(View.VISIBLE);
+                }
+                if (mKaobeiAfterFlag == 1) {
                     showKaobeiAfterView();
-                } else {
-                    showKaobeiBeforeAndAfterView();
                 }
             } else {
                 mViewKaobeiBefore.setVisibility(View.GONE);
@@ -173,10 +173,10 @@ public class AdjustFragment extends Fragment {
                 mTouzhenBottomFlag = mAdjustModel.getTouzhenBottomFlag();
                 if (mTouzhenTopFlag == 1) {
                     showTouzhenTopView();
-                } else if (mTouzhenBottomFlag == 1) {
+                    mViewToutuoBottom.setVisibility(View.VISIBLE);
+                }
+                if (mTouzhenBottomFlag == 1) {
                     showTouzhenBottomView();
-                } else {
-                    showTouzhenTopAndBottomView();
                 }
             } else {
                 mViewToutuoTop.setVisibility(View.GONE);
@@ -189,14 +189,18 @@ public class AdjustFragment extends Fragment {
                 mYaozhenRightFlag = mAdjustModel.getYaozhenRightFlag();
                 if (mYaozhenTopFlag == 1) {
                     showYaotuoTopView();
-                } else if (mYaozhenBottomFlag == 1) {
+                    mViewYaotuoBottom.setVisibility(View.VISIBLE);
+                    mViewYaotuoLeft.setVisibility(View.VISIBLE);
+                    mViewYaotuoRight.setVisibility(View.VISIBLE);
+                }
+                if (mYaozhenBottomFlag == 1) {
                     showYaotuoBottomView();
-                } else if (mYaozhenLeftFlag == 1) {
+                }
+                if (mYaozhenLeftFlag == 1) {
                     showYaotuoLeftView();
-                } else if (mYaozhenRightFlag == 1) {
+                }
+                if (mYaozhenRightFlag == 1) {
                     showYaotuoRightView();
-                } else {
-                    showYaotuoClickView();
                 }
             } else {
                 mViewYaotuoTop.setVisibility(View.GONE);
@@ -209,10 +213,10 @@ public class AdjustFragment extends Fragment {
                 mTuituoAfterFlag = mAdjustModel.getTuituoAfterFlag();
                 if (mTuituoBeforeFlag == 1) {
                     showTuituoBeforeView();
-                } else if (mTuituoAfterFlag == 1) {
+                    mViewTuituoAfter.setVisibility(View.VISIBLE);
+                }
+                if (mTuituoAfterFlag == 1) {
                     showTuituoAfterView();
-                } else {
-                    showTuituoView();
                 }
             } else {
                 mViewTuituoBefore.setVisibility(View.GONE);
@@ -223,10 +227,10 @@ public class AdjustFragment extends Fragment {
                 mQianhouAfterFlag = mAdjustModel.getQianhouAfterFlag();
                 if (mQianhouBeforeFlag == 1) {
                     showQianhouBeforeView();
-                } else if (mQianhouAfterFlag == 1) {
+                    mViewQianhouAfter.setVisibility(View.VISIBLE);
+                }
+                if (mQianhouAfterFlag == 1) {
                     showQianhouAfterView();
-                } else {
-                    showQianhouView();
                 }
             } else {
                 mViewQianhouBefore.setVisibility(View.GONE);
@@ -423,6 +427,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showKaobeiBeforeView() {
         mViewKaobeiSelected.setVisibility(View.VISIBLE);
+        mViewKaobeiBefore.setVisibility(View.VISIBLE);
         mViewKaobeiBefore.setBackgroundResource(R.drawable.icon_kaobei_before_selected_h730);
     }
 
@@ -431,6 +436,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showKaobeiAfterView() {
         mViewKaobeiSelected.setVisibility(View.VISIBLE);
+        mViewKaobeiAfter.setVisibility(View.VISIBLE);
         mViewKaobeiAfter.setBackgroundResource(R.drawable.icon_kaobei_after_selected);
     }
 
@@ -447,6 +453,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showTouzhenTopView() {
         mViewToutuoSelected.setVisibility(View.VISIBLE);
+        mViewToutuoTop.setVisibility(View.VISIBLE);
         mViewToutuoTop.setBackgroundResource(R.drawable.icon_toutuo_top_selected_h600);
     }
 
@@ -455,6 +462,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showTouzhenBottomView() {
         mViewToutuoSelected.setVisibility(View.VISIBLE);
+        mViewToutuoBottom.setVisibility(View.VISIBLE);
         mViewToutuoBottom.setBackgroundResource(R.drawable.icon_toutuo_bottom_selected_h600);
     }
 
@@ -473,6 +481,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showYaotuoTopView() {
         mViewYaotuoSelected.setVisibility(View.VISIBLE);
+        mViewYaotuoTop.setVisibility(View.VISIBLE);
         mViewYaotuoTop.setBackgroundResource(R.drawable.icon_yaotuo_top_selected_h600);
     }
 
@@ -481,6 +490,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showYaotuoBottomView() {
         mViewYaotuoSelected.setVisibility(View.VISIBLE);
+        mViewYaotuoBottom.setVisibility(View.VISIBLE);
         mViewYaotuoBottom.setBackgroundResource(R.drawable.icon_yaotuo_bottom_selected_h600);
     }
 
@@ -489,6 +499,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showYaotuoLeftView() {
         mViewYaotuoSelected.setVisibility(View.VISIBLE);
+        mViewYaotuoLeft.setVisibility(View.VISIBLE);
         mViewYaotuoLeft.setBackgroundResource(R.drawable.icon_yaotuo_left_selected_h600);
     }
 
@@ -497,6 +508,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showYaotuoRightView() {
         mViewYaotuoSelected.setVisibility(View.VISIBLE);
+        mViewYaotuoRight.setVisibility(View.VISIBLE);
         mViewYaotuoRight.setBackgroundResource(R.drawable.icon_yaotuo_right_selected_h600);
     }
 
@@ -513,6 +525,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showTuituoBeforeView() {
         mViewTuituoSelected.setVisibility(View.VISIBLE);
+        mViewTuituoBefore.setVisibility(View.VISIBLE);
         mViewTuituoBefore.setBackgroundResource(R.drawable.icon_tuituo_before_selected);
     }
 
@@ -521,6 +534,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showTuituoAfterView() {
         mViewTuituoSelected.setVisibility(View.VISIBLE);
+        mViewTuituoAfter.setVisibility(View.VISIBLE);
         mViewTuituoAfter.setBackgroundResource(R.drawable.icon_tuituo_after_selected);
     }
 
@@ -537,6 +551,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showQianhouBeforeView() {
         mViewQianhouSelected.setVisibility(View.VISIBLE);
+        mViewQianhouBefore.setVisibility(View.VISIBLE);
         mViewQianhouBefore.setBackgroundResource(R.drawable.icon_qianhou_before_selected);
 
     }
@@ -546,6 +561,7 @@ public class AdjustFragment extends Fragment {
      */
     private void showQianhouAfterView() {
         mViewQianhouSelected.setVisibility(View.VISIBLE);
+        mViewQianhouAfter.setVisibility(View.VISIBLE);
         mViewQianhouAfter.setBackgroundResource(R.drawable.icon_qianhou_after_selected);
     }
 

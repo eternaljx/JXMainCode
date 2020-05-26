@@ -210,62 +210,48 @@ public class FunctionFragment extends Fragment {
                 if (mHeatingCount == 1) {//加热一档
                     setHeatingModelSelected();
                     openHeatingOneGearView();
-                    mHeatingCount = 2;
-                } else if (mHeatingCount == 2) {//加热二档
+                }
+                if (mHeatingCount == 2) {//加热二档
                     setHeatingModelSelected();
                     openHeatingTwoGearView();
-                    mHeatingCount = 3;
-                } else if (mHeatingCount == 3) {//加热三档
+                }
+                if (mHeatingCount == 3) {//加热三档
                     setHeatingModelSelected();
                     openHeatingThreeGearView();
-                    mHeatingCount = 0;
                 }
-            } else {
-                closeHeatingGearView();
-                mHeatingCount = 1;
             }
             if (mIsOpenVentilation) {//是否开启通风
                 mVentilationCount = mFunctionModel.getVentilationGear();
                 if (mVentilationCount == 1) {//通风一档
                     setVentilationModelSelected();
                     openVentilationOneGearView();
-                    mVentilationCount = 2;
-                } else if (mVentilationCount == 2) {//通风二档
+                }
+                if (mVentilationCount == 2) {//通风二档
                     setVentilationModelSelected();
                     openVentilationTwoGearView();
-                    mVentilationCount = 3;
-                } else if (mVentilationCount == 3) {//通风三档
+                }
+                if (mVentilationCount == 3) {//通风三档
                     setVentilationModelSelected();
                     openVentilationThreeGearView();
-                    mVentilationCount = 0;
                 }
-            } else {
-                closeVentilationGearView();
-                mVentilationCount = 1;
             }
             if (mIsOpenMassge) {//是否开启按摩
                 mMassageCount = mFunctionModel.getMassageGear();
                 if (mMassageCount == 1) {//按摩一档
                     setmRlMassageModelSelected();
                     openMassageOneGearView();
-                    mMassageCount = 2;
-                } else if (mMassageCount == 2) {//按摩二档
+                }
+                if (mMassageCount == 2) {//按摩二档
                     setmRlMassageModelSelected();
                     openMassageTwoGearView();
-                    mMassageCount = 0;
                 }
-            } else {
-                closeMassageGearView();
-                mMassageCount = 1;
             }
             if (mIsOpenVembient) {//是否开启氛围灯
                 openAmbientShadowView();
                 setAmbientModelSelected();
-                mIsOpenVembientShadow = false;
             } else {
                 closeAmbientShadowView();
                 setAmbientModelUnSelected();
-                mIsOpenVembientShadow = true;
             }
         } else {
             mFunctionModel = new FunctionModel();
@@ -279,6 +265,7 @@ public class FunctionFragment extends Fragment {
             public void onClick(View v) {
                 if (mIsLogin) {
                     //开启加热模式
+                    mHeatingCount = mFunctionModel.getHeatingGear() + 1;
                     mFunctionModel.setOpenHeatingGear(true);
                     if (mHeatingCount == 1) {//1
                         setHeatingModelSelected();
@@ -317,6 +304,7 @@ public class FunctionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mIsLogin) {
+                    mVentilationCount = mFunctionModel.getVentilationGear() + 1;
                     mFunctionModel.setOpenVentilation(true);
                     if (mVentilationCount == 1) {
                         setVentilationModelSelected();
@@ -343,6 +331,7 @@ public class FunctionFragment extends Fragment {
                         mFunctionModel.setVentilationGear(0);
                         mFunctionModel.setOpenVentilation(false);
                     }
+                    SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
                 } else {
                     Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
                     startActivity(toLoginPage);
@@ -354,6 +343,7 @@ public class FunctionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mIsLogin) {
+                    mMassageCount = mFunctionModel.getMassageGear() + 1;
                     mFunctionModel.setOpenMassage(true);
                     if (mMassageCount == 1) {
                         setmRlMassageModelSelected();
@@ -374,6 +364,7 @@ public class FunctionFragment extends Fragment {
                         mFunctionModel.setMassageGear(0);
                         mFunctionModel.setOpenMassage(false);
                     }
+                    SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
                 } else {
                     Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
                     startActivity(toLoginPage);
@@ -398,6 +389,7 @@ public class FunctionFragment extends Fragment {
                         //清除氛围灯数据
                         mFunctionModel.setOpenVembient(false);
                     }
+                    SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
                 } else {
                     Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
                     startActivity(toLoginPage);
