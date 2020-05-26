@@ -139,6 +139,8 @@ public class ConnectionDeviceActivity extends HMBaseActivity {
                     if (loading.isShowing()) {
                         loading.dismiss();
                     }
+                    SPUtils.put(ConnectionDeviceActivity.this,"username",sUser);
+                    SPUtils.put(ConnectionDeviceActivity.this,"isLogin",true);
                     String time = NetworkUtils.getNowTime();
                     DeviceInfoDao deviceInfoDao = new DeviceInfoDao(ConnectionDeviceActivity.this);
                     deviceInfoDao.deleteDataByID(sUser);
@@ -148,7 +150,6 @@ public class ConnectionDeviceActivity extends HMBaseActivity {
                     device.setOnLine(BaseVolume.IS_ONLINE);
                     sendBroadcast(new Intent(BaseVolume.ADD_DEVICE).putExtra("device", device));
                     sendBroadcast(new Intent(BaseVolume.DEVICE_DELETE).putExtra(BaseVolume.DEVICE_USER, sUser));
-                    SPUtils.put(ConnectionDeviceActivity.this,"isLogin",true);
                     finish();
                     break;
                 case BaseVolume.TASK_ERROR:

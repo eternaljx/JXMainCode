@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.SPUtils;
+import com.smartseat.workgroup.main.model.AdjustModel;
 
 /**
  * 调节页面
@@ -60,6 +62,10 @@ public class AdjustFragment extends Fragment {
     private View mViewQianhouBefore;
     //座椅向后调节view布局
     private View mViewQianhouAfter;
+    //用户名
+    private String username;
+    //调节页面数据模型初始化
+    private AdjustModel mAdjustModel = new AdjustModel();
 
 
     public static AdjustFragment newInstance() {
@@ -72,6 +78,7 @@ public class AdjustFragment extends Fragment {
         //通过参数中的布局填充获取对应布局
         View view = inflater.inflate(R.layout.activity_adjust_fragment, container, false);
         initView(view);
+        initData();
         initEvent();
         return view;
 
@@ -102,12 +109,19 @@ public class AdjustFragment extends Fragment {
         mViewQianhouAfter = view.findViewById(R.id.iv_qianhou_after_view);
     }
 
+    private void initData() {
+        username = (String) SPUtils.get(getContext(), "username", "");
+    }
+
     private void initEvent() {
         //点击靠背事件，显示前后调节布局（前后都是白色）
         mViewKaobeiClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showKaobeiBeforeAndAfterView();
+                //存储开启靠背调节
+                mAdjustModel.setOpenKaobei(true);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击后调节事件，后调节按钮更换成选中图片、靠背按钮也变成选中图片
@@ -115,6 +129,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showKaobeiBeforeView();
+                //存储靠背向后节
+                mAdjustModel.setKaobeiBeforeFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击前调节事件，前调节按钮更换成选中图片，靠背按钮也变成选中图片
@@ -122,6 +139,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showKaobeiAfterView();
+                //存储靠背向前调节
+                mAdjustModel.setKaobeiAfterFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击头枕事件，显示向上向下调节布局（上下都是白色）
@@ -129,6 +149,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTouzhenTopAndBottomView();
+                //存储开启头枕调节
+                mAdjustModel.setOpenTouzhen(true);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击头枕向上调节
@@ -136,6 +159,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTouzhenTopView();
+                //存储头枕向上调节
+                mAdjustModel.setTouzhenTopFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击头枕向下调节
@@ -143,6 +169,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTouzhenBottomView();
+                //存储头枕向下调节
+                mAdjustModel.setTouzhenBottomFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托事件，显示向上、向下、向左、向右布局（显示白色）
@@ -150,6 +179,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showYaotuoClickView();
+                //存储开启腰托调节
+                mAdjustModel.setOpenYaozhen(true);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托向上调节
@@ -157,6 +189,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showYaotuoTopView();
+                //存储腰托向上调节
+                mAdjustModel.setYaozhenTopFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托向下调节
@@ -164,6 +199,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showYaotuoBottomView();
+                //存储腰托向下调节
+                mAdjustModel.setYaozhenBottomFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托向左调节
@@ -171,6 +209,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showYaotuoLeftView();
+                //存储腰托向左调节
+                mAdjustModel.setYaozhenLeftFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托向右调节
@@ -178,6 +219,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showYaotuoRightView();
+                //存储腰托向右调节
+                mAdjustModel.setYaozhenRightFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腿托view事件，显示向前调节和向后调节布局（显示白色）
@@ -185,6 +229,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTuituoView();
+                //存储开启腿托调节
+                mAdjustModel.setOpenTuituo(true);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腿托向前view布局
@@ -192,6 +239,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTuituoBeforeView();
+                //存储腿托向前调节
+                mAdjustModel.setTuituoBeforeFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //显示腿托向后view布局
@@ -199,6 +249,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showTuituoAfterView();
+                //存储腿托向后调节
+                mAdjustModel.setTuituoAfterFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击座椅前后事件，显示向前和向后布局（显示白色）
@@ -206,6 +259,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showQianhouView();
+                //存储开启座椅前后调节
+                mAdjustModel.setOpenQianhou(true);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击座椅向前事件
@@ -213,6 +269,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showQianhouBeforeView();
+                //存储座椅向前调节
+                mAdjustModel.setQianhouBeforeFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击座椅向后事件
@@ -220,6 +279,9 @@ public class AdjustFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showQianhouAfterView();
+                //存储座椅向后调节
+                mAdjustModel.setQianhouAfterFlag(1);
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
     }

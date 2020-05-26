@@ -8,6 +8,27 @@ import java.io.Serializable;
 public class AdjustModel implements Serializable {
 
     /**
+     * 是否开启靠背调节
+     */
+    private boolean isOpenKaobei;
+    /**
+     * 是否开启头枕调节
+     */
+    private boolean isOpenTouzhen;
+    /**
+     * 是否开启腰枕调节
+     */
+    private boolean isOpenYaozhen;
+    /**
+     * 是否开启腿托调节
+     */
+    private boolean isOpenTuituo;
+    /**
+     * 是否开启前后调节
+     */
+    private boolean isOpenQianhou;
+
+    /**
      * 靠背向前调节：0：未调节、1：调节
      */
     private int kaobeiBeforeFlag;
@@ -55,6 +76,46 @@ public class AdjustModel implements Serializable {
      * 座椅前后向后调节：0：未调节、1：调节
      */
     private int qianhouAfterFlag;
+
+    public boolean isOpenKaobei() {
+        return isOpenKaobei;
+    }
+
+    public void setOpenKaobei(boolean openKaobei) {
+        isOpenKaobei = openKaobei;
+    }
+
+    public boolean isOpenTouzhen() {
+        return isOpenTouzhen;
+    }
+
+    public void setOpenTouzhen(boolean openTouzhen) {
+        isOpenTouzhen = openTouzhen;
+    }
+
+    public boolean isOpenYaozhen() {
+        return isOpenYaozhen;
+    }
+
+    public void setOpenYaozhen(boolean openYaozhen) {
+        isOpenYaozhen = openYaozhen;
+    }
+
+    public boolean isOpenTuituo() {
+        return isOpenTuituo;
+    }
+
+    public void setOpenTuituo(boolean openTuituo) {
+        isOpenTuituo = openTuituo;
+    }
+
+    public boolean isOpenQianhou() {
+        return isOpenQianhou;
+    }
+
+    public void setOpenQianhou(boolean openQianhou) {
+        isOpenQianhou = openQianhou;
+    }
 
     public int getKaobeiBeforeFlag() {
         return kaobeiBeforeFlag;

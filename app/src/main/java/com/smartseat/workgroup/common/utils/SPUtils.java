@@ -6,6 +6,9 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.smartseat.workgroup.main.model.AdjustModel;
+import com.smartseat.workgroup.main.model.FunctionModel;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,7 +26,8 @@ public class SPUtils {
      * 保存在手机里面的文件名
      */
     public static final String FILE_NAME = "keys";
-    public static final String MODEL_KEY = "login";
+    public static final String FUNCTION_MODEL_KEY = "functionModel";
+    public static final String ADJUST_MODEL_KEY = "adjustModel";
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
@@ -153,29 +157,6 @@ public class SPUtils {
     }
 
     /**
-     * 保存对象,被保存的对象必须实现序列化
-     */
-    public static void putModel(Context context, Object object) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        try {
-            //先将序列化结果写到byte缓存中，其实就分配一个内存空间
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutputStream os = new ObjectOutputStream(bos);
-            //将对象序列化写入byte缓存
-            os.writeObject(object);
-            //将序列化的数据转为16进制保存
-            String bytesToHexString = bytesToHexString(bos.toByteArray());
-            //保存该16进制数组
-            editor.putString(MODEL_KEY, bytesToHexString);
-            SharedPreferencesCompat.apply(editor);
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e("", "保存obj失败");
-        }
-    }
-
-    /**
      * desc:将数组转为16进制
      *
      * @param bArray
@@ -197,37 +178,6 @@ public class SPUtils {
             sb.append(sTemp.toUpperCase());
         }
         return sb.toString();
-    }
-
-    /**
-     * 获取Model
-     */
-    public static Object getModel(Context context) {
-        try {
-            SharedPreferences sharedata = context.getSharedPreferences(FILE_NAME, 0);
-            if (sharedata.contains(MODEL_KEY)) {
-                String string = sharedata.getString(MODEL_KEY, "");
-                if (TextUtils.isEmpty(string)) {
-                    return null;
-                } else {
-                    //将16进制的数据转为数组，准备反序列化
-                    byte[] stringToBytes = StringToBytes(string);
-                    ByteArrayInputStream bis = new ByteArrayInputStream(stringToBytes);
-                    ObjectInputStream is = new ObjectInputStream(bis);
-                    //返回反序列化得到的对象
-                    Object readObject = is.readObject();
-                    return readObject;
-                }
-            }
-        } catch (StreamCorruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        //所有异常返回null
-        return null;
     }
 
     /**
@@ -383,6 +333,161 @@ public class SPUtils {
         }
     }
 
-    
+    /**
+     * 存储功能页面Model数据
+     */
+    public static void putFunctionModel(Context context, String username, FunctionModel object) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        try {
+            //先将序列化结果写到byte缓存中，其实就分配一个内存空间
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream os = new ObjectOutputStream(bos);
+            //将对象序列化写入byte缓存
+            os.writeObject(object);
+            //将序列化的数据转为16进制保存
+            String bytesToHexString = bytesToHexString(bos.toByteArray());
+            //保存该16进制数组
+            editor.putString(FUNCTION_MODEL_KEY + username, bytesToHexString);
+            SharedPreferencesCompat.apply(editor);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("", "保存obj失败");
+        }
+    }
+
+    /**
+     * 获取功能页面Model数据
+     */
+    public static Object getFunctionModel(Context context, String username) {
+        try {
+            SharedPreferences sharedata = context.getSharedPreferences(FILE_NAME, 0);
+            if (sharedata.contains(FUNCTION_MODEL_KEY + username)) {
+                String string = sharedata.getString(FUNCTION_MODEL_KEY + username, "");
+                if (TextUtils.isEmpty(string)) {
+                    return null;
+                } else {
+                    //将16进制的数据转为数组，准备反序列化
+                    byte[] stringToBytes = StringToBytes(string);
+                    ByteArrayInputStream bis = new ByteArrayInputStream(stringToBytes);
+                    ObjectInputStream is = new ObjectInputStream(bis);
+                    //返回反序列化得到的对象
+                    Object readObject = is.readObject();
+                    return readObject;
+                }
+            }
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //所有异常返回null
+        return null;
+    }
+
+    /**
+     * 存储调节页面model数据
+     * @param context
+     * @param username
+     * @param object
+     */
+    public static void putAdjustModel(Context context, String username, AdjustModel object) {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        try {
+            //先将序列化结果写到byte缓存中，其实就分配一个内存空间
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream os = new ObjectOutputStream(bos);
+            //将对象序列化写入byte缓存
+            os.writeObject(object);
+            //将序列化的数据转为16进制保存
+            String bytesToHexString = bytesToHexString(bos.toByteArray());
+            //保存该16进制数组
+            editor.putString(ADJUST_MODEL_KEY + username, bytesToHexString);
+            SharedPreferencesCompat.apply(editor);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("", "保存obj失败");
+        }
+    }
+
+    /**
+     * 获取调节页面model数据
+     * @param context
+     * @param username
+     * @return
+     */
+    public static Object getAdjustModel(Context context, String username) {
+        try {
+            SharedPreferences sharedata = context.getSharedPreferences(FILE_NAME, 0);
+            if (sharedata.contains(ADJUST_MODEL_KEY + username)) {
+                String string = sharedata.getString(ADJUST_MODEL_KEY + username, "");
+                if (TextUtils.isEmpty(string)) {
+                    return null;
+                } else {
+                    //将16进制的数据转为数组，准备反序列化
+                    byte[] stringToBytes = StringToBytes(string);
+                    ByteArrayInputStream bis = new ByteArrayInputStream(stringToBytes);
+                    ObjectInputStream is = new ObjectInputStream(bis);
+                    //返回反序列化得到的对象
+                    Object readObject = is.readObject();
+                    return readObject;
+                }
+            }
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //所有异常返回null
+        return null;
+    }
+
+    /**
+     * 存储睡眠模式
+     *
+     * @param context
+     * @param username
+     */
+    public static void saveSleepModelData(Context context, String username) {
+        SPUtils.put(context, "openSleep" + username, 1);
+    }
+
+    /**
+     * 获取睡眠模式
+     *
+     * @param context
+     * @param username
+     * @return
+     */
+    public static int getSleepModelData(Context context, String username) {
+        return (int) SPUtils.get(context, "openSleep" + username, "");
+    }
+
+    /**
+     * 存储一键复位模式
+     *
+     * @param context
+     * @param username
+     */
+    public static void saveOneKeyResetData(Context context, String username) {
+        SPUtils.put(context, "oneKeyRest" + username, 1);
+    }
+
+    /**
+     * 获取一键复位模式
+     *
+     * @param context
+     * @param username
+     * @return
+     */
+    public static int getOneKeyResetData(Context context, String username) {
+        return (int) SPUtils.get(context, "oneKeyRest" + username, "");
+    }
+
 
 }

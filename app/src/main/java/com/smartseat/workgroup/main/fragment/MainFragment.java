@@ -64,6 +64,8 @@ public class MainFragment extends Fragment {
     private ImageView mIvOneKeyResetModelDeleteSelected;
     //是否登录过
     private boolean mIsLogin;
+    //用户名
+    private String mUserName;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -105,6 +107,7 @@ public class MainFragment extends Fragment {
 
     private void initData() {
         mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
+        mUserName = (String) SPUtils.get(getContext(), "", "username");
     }
 
     private void initEvent() {
@@ -138,7 +141,7 @@ public class MainFragment extends Fragment {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的睡眠模式
                     setSleepModelSelectedStatus();
-                    SPUtils.put(getContext(),"sleepModel","1");
+                    SPUtils.saveSleepModelData(getContext(), mUserName);
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
@@ -154,7 +157,7 @@ public class MainFragment extends Fragment {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的一键复位模式
                     setOnKeyResetModelSelected();
-                    SPUtils.put(getContext(),"onKeyResetModel","1");
+                    SPUtils.saveOneKeyResetData(getContext(), mUserName);
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
@@ -168,7 +171,8 @@ public class MainFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 setSleepModelSelectedStatus();
-                //TODO 存储睡眠模式
+                //存储睡眠模式
+                SPUtils.saveSleepModelData(getContext(), mUserName);
                 return false;
             }
         });
@@ -181,7 +185,8 @@ public class MainFragment extends Fragment {
                 mIvSleepModelDelete.setVisibility(View.GONE);
                 mIvSleepModelDeleteSelected.setVisibility(View.VISIBLE);
                 setSleepModelUnSelectedStatus();
-                //TODO 清除睡眠模式
+                //清除睡眠模式
+                SPUtils.remove(getContext(), "openSleep");
             }
         });
         //点击设置弹框--存储一键复位模式
@@ -189,7 +194,8 @@ public class MainFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 setOnKeyResetModelSelected();
-                //TODO 存储一键复位模式
+                //存储一键复位模式
+                SPUtils.saveOneKeyResetData(getContext(), mUserName);
                 return false;
             }
         });
@@ -202,7 +208,8 @@ public class MainFragment extends Fragment {
                 mIvOneKeyResetModelDelete.setVisibility(View.GONE);
                 mIvOneKeyResetModelDeleteSelected.setVisibility(View.VISIBLE);
                 setOnKeyResetModelUnSelected();
-                //TODO 清除一键复位模式
+                //清除一键复位模式
+                SPUtils.remove(getContext(), "oneKeyRest");
             }
         });
     }
