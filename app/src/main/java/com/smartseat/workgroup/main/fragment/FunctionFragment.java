@@ -263,7 +263,7 @@ public class FunctionFragment extends Fragment {
         mRlHeatingModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mIsLogin) {
+               if (mIsLogin) {
                     //开启加热模式
                     mHeatingCount = mFunctionModel.getHeatingGear() + 1;
                     mFunctionModel.setOpenHeatingGear(true);
