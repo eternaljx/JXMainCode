@@ -1,5 +1,6 @@
 package com.smartseat.workgroup.main.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.smartseat.workgroup.R;
 import com.smartseat.workgroup.common.utils.SPUtils;
+import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 import com.smartseat.workgroup.main.model.AdjustModel;
 
 import static com.smartseat.workgroup.common.utils.SPUtils.ADJUST_MODEL_KEY;
@@ -102,6 +104,7 @@ public class AdjustFragment extends Fragment {
     private int mQianhouBeforeFlag;
     //座椅向后调节
     private int mQianhouAfterFlag;
+    private boolean mIsLogin;
 
 
     public static AdjustFragment newInstance() {
@@ -146,6 +149,7 @@ public class AdjustFragment extends Fragment {
     }
 
     private void initData() {
+        mIsLogin = (boolean) SPUtils.get(getContext(), "isLogin", false);
         username = (String) SPUtils.get(getContext(), "username", "");
         mAdjustModel = (AdjustModel) SPUtils.getAdjustModel(getContext(), username);
         if (mAdjustModel != null) {
@@ -246,10 +250,15 @@ public class AdjustFragment extends Fragment {
         mViewKaobeiClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showKaobeiBeforeAndAfterView();
-                //存储开启靠背调节
-                mAdjustModel.setOpenKaobei(true);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showKaobeiBeforeAndAfterView();
+                    //存储开启靠背调节
+                    mAdjustModel.setOpenKaobei(true);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击后调节事件，后调节按钮更换成选中图片、靠背按钮也变成选中图片
@@ -276,10 +285,15 @@ public class AdjustFragment extends Fragment {
         mViewToutuoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTouzhenTopAndBottomView();
-                //存储开启头枕调节
-                mAdjustModel.setOpenTouzhen(true);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showTouzhenTopAndBottomView();
+                    //存储开启头枕调节
+                    mAdjustModel.setOpenTouzhen(true);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击头枕向上调节
@@ -296,20 +310,30 @@ public class AdjustFragment extends Fragment {
         mViewToutuoBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTouzhenBottomView();
-                //存储头枕向下调节
-                mAdjustModel.setTouzhenBottomFlag(1);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showTouzhenBottomView();
+                    //存储头枕向下调节
+                    mAdjustModel.setTouzhenBottomFlag(1);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击腰托事件，显示向上、向下、向左、向右布局（显示白色）
         mViewYaotuoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showYaotuoClickView();
-                //存储开启腰托调节
-                mAdjustModel.setOpenYaozhen(true);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showYaotuoClickView();
+                    //存储开启腰托调节
+                    mAdjustModel.setOpenYaozhen(true);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击腰托向上调节
@@ -356,10 +380,15 @@ public class AdjustFragment extends Fragment {
         mViewTuituoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTuituoView();
-                //存储开启腿托调节
-                mAdjustModel.setOpenTuituo(true);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showTuituoView();
+                    //存储开启腿托调节
+                    mAdjustModel.setOpenTuituo(true);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击腿托向前view布局
@@ -386,10 +415,15 @@ public class AdjustFragment extends Fragment {
         mViewQianhouClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showQianhouView();
-                //存储开启座椅前后调节
-                mAdjustModel.setOpenQianhou(true);
-                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                if (mIsLogin) {
+                    showQianhouView();
+                    //存储开启座椅前后调节
+                    mAdjustModel.setOpenQianhou(true);
+                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                } else {
+                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
+                    startActivity(toLoginPage);
+                }
             }
         });
         //点击座椅向前事件

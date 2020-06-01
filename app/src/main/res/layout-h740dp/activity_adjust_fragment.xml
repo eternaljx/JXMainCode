@@ -16,52 +16,52 @@
 
         <View
             android:id="@+id/v_kaobei_click"
-            android:layout_width="140dp"
-            android:layout_height="320dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="140dp" />
+            android:layout_width="160dp"
+            android:layout_height="338dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="157dp" />
 
 
         <ImageView
             android:id="@+id/iv_kaobei_selected"
-            android:layout_width="140dp"
-            android:layout_height="320dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="140dp"
-            android:background="@drawable/icon_kaobei_selected_h720"
+            android:layout_width="160dp"
+            android:layout_height="338dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="157dp"
+            android:background="@drawable/icon_kaobei_selected_h740"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_kaobei_before_white_view"
-            android:layout_width="50dp"
-            android:layout_height="190dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="250dp"
-            android:background="@drawable/icon_kaobei_before_h720"
+            android:layout_width="40dp"
+            android:layout_height="145dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="295dp"
+            android:background="@drawable/icon_kaobei_before_h730"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_kaobei_after_view"
             android:layout_width="76dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="233dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="256dp"
             android:background="@drawable/icon_kaobei_after"
             android:visibility="gone" />
 
         <View
             android:id="@+id/v_toutuo_click"
             android:layout_width="48dp"
-            android:layout_height="52dp"
-            android:layout_marginLeft="78dp"
-            android:layout_marginTop="180dp" />
+            android:layout_height="54dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="196dp" />
 
         <ImageView
             android:id="@+id/iv_toutuo_selected"
             android:layout_width="48dp"
-            android:layout_height="52dp"
-            android:layout_marginLeft="78dp"
-            android:layout_marginTop="180dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="196dp"
             android:background="@drawable/icon_toutuo_selected_xxh"
             android:visibility="gone" />
 
@@ -70,7 +70,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="76dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="165dp"
             android:background="@drawable/icon_touzhen_top"
             android:visibility="gone" />
 
@@ -78,79 +78,76 @@
             android:id="@+id/iv_toutuo_bottom_view"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="105dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginLeft="102dp"
+            android:layout_marginTop="254dp"
             android:background="@drawable/icon_touzhen_bottom"
             android:visibility="gone" />
 
         <View
             android:id="@+id/v_yaotuo_click"
             android:layout_width="60dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="126dp"
-            android:layout_marginTop="310dp" />
+            android:layout_height="70dp"
+            android:layout_marginLeft="127dp"
+            android:layout_marginTop="325dp" />
 
         <ImageView
             android:id="@+id/iv_yaotuo_selected"
             android:layout_width="60dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="126dp"
-            android:layout_marginTop="310dp"
-            android:background="@drawable/icon_yaotuo_selected_h720"
+            android:layout_height="70dp"
+            android:layout_marginLeft="127dp"
+            android:layout_marginTop="325dp"
+            android:background="@drawable/icon_yaotuo_selected_h730"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_yaotuo_top_view"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="290dp"
+            android:layout_marginLeft="121dp"
+            android:layout_marginTop="309dp"
             android:background="@drawable/icon_yaotuo_top_h600"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_yaotuo_bottom_view"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="164dp"
-            android:layout_marginTop="352dp"
-            android:background="@drawable/icon_yaotuo_right_h600"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="167dp"
+            android:layout_marginTop="385dp"
+            android:background="@drawable/icon_yaotuo_bottom_h600"
             android:visibility="gone" />
-
 
         <ImageView
             android:id="@+id/iv_yaotuo_left_view"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="108dp"
-            android:layout_marginTop="325dp"
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="352dp"
             android:background="@drawable/icon_yaotuo_left_h600"
             android:visibility="gone" />
 
-
         <ImageView
             android:id="@+id/iv_yaotuo_right_view"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="163dp"
-            android:layout_marginTop="302dp"
-            android:background="@drawable/icon_yaotuo_bottom_h600"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="159dp"
+            android:layout_marginTop="327dp"
+            android:background="@drawable/icon_yaotuo_right_h600"
             android:visibility="gone" />
-
 
         <View
             android:id="@+id/v_tuituo_click"
             android:layout_width="25dp"
-            android:layout_height="79dp"
+            android:layout_height="96dp"
             android:layout_marginLeft="262dp"
-            android:layout_marginTop="381dp" />
+            android:layout_marginTop="405dp" />
 
         <ImageView
             android:id="@+id/iv_tuituo_selected"
             android:layout_width="25dp"
-            android:layout_height="79dp"
+            android:layout_height="96dp"
             android:layout_marginLeft="262dp"
-            android:layout_marginTop="381dp"
+            android:layout_marginTop="405dp"
             android:background="@drawable/icon_tuituo_selected"
             android:visibility="gone" />
 
@@ -158,8 +155,8 @@
             android:id="@+id/iv_tuituo_before_view"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="210dp"
-            android:layout_marginTop="432dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="470dp"
             android:background="@drawable/icon_tuituo_before"
             android:visibility="gone" />
 
@@ -167,25 +164,25 @@
             android:id="@+id/iv_tuituo_after_view"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="428dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="454dp"
             android:layout_toRightOf="@+id/iv_tuituo_before_view"
             android:background="@drawable/icon_tuituo_after"
             android:visibility="gone" />
 
         <View
             android:id="@+id/v_qianhou_click"
-            android:layout_width="75dp"
-            android:layout_height="16dp"
+            android:layout_width="78dp"
+            android:layout_height="18dp"
             android:layout_marginLeft="174dp"
-            android:layout_marginTop="495dp" />
+            android:layout_marginTop="532dp" />
 
         <ImageView
             android:id="@+id/iv_qianhou_selected"
-            android:layout_width="75dp"
-            android:layout_height="16dp"
+            android:layout_width="78dp"
+            android:layout_height="18dp"
             android:layout_marginLeft="174dp"
-            android:layout_marginTop="495dp"
+            android:layout_marginTop="532dp"
             android:background="@drawable/icon_qianhou_selected"
             android:visibility="gone" />
 
@@ -193,18 +190,17 @@
             android:id="@+id/iv_qianhou_before_view"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="490dp"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="526dp"
             android:background="@drawable/icon_qianhou_before"
             android:visibility="gone" />
-
 
         <ImageView
             android:id="@+id/iv_qianhou_after_view"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="108dp"
-            android:layout_marginTop="490dp"
+            android:layout_marginLeft="113dp"
+            android:layout_marginTop="526dp"
             android:layout_toRightOf="@+id/iv_qianhou_before_view"
             android:background="@drawable/icon_qianhou_after"
             android:visibility="gone" />
