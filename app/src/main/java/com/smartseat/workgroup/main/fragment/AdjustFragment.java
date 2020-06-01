@@ -310,22 +310,17 @@ public class AdjustFragment extends Fragment {
         mViewToutuoBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mIsLogin) {
                     showTouzhenBottomView();
                     //存储头枕向下调节
                     mAdjustModel.setTouzhenBottomFlag(1);
                     SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
-                } else {
-                    Intent toLoginPage = new Intent(getContext(), ConnectionDeviceActivity.class);
-                    startActivity(toLoginPage);
-                }
             }
         });
         //点击腰托事件，显示向上、向下、向左、向右布局（显示白色）
         mViewYaotuoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mIsLogin) {
+               if (mIsLogin) {
                     showYaotuoClickView();
                     //存储开启腰托调节
                     mAdjustModel.setOpenYaozhen(true);
