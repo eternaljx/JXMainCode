@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.FunctionClickUtils;
 import com.smartseat.workgroup.common.utils.SPUtils;
 import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 
@@ -156,8 +157,9 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的睡眠模式
+                    FunctionClickUtils.getInstance().isOpenSleepModel(true);
                     setSleepModelSelectedStatus();
-                    SPUtils.saveSleepModelData(getContext(), mUserName);
+                    SPUtils.saveSleepModelData(getContext(), mUserName, FunctionClickUtils.getInstance().getOpenSleepStatus());
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
@@ -172,8 +174,9 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 if (mIsLogin) {
                     //弹出pop设置窗口，同时点亮设置里的一键复位模式
+                    FunctionClickUtils.getInstance().isOpenOneKeyResetModel(true);
                     setOnKeyResetModelSelected();
-                    SPUtils.saveOneKeyResetData(getContext(), mUserName);
+                    SPUtils.saveOneKeyResetData(getContext(), mUserName, FunctionClickUtils.getInstance().getOpenOneKeyResetModel());
                     mRlPopLayout.setVisibility(View.VISIBLE);
                     mIvSetting.setVisibility(View.GONE);
                 } else {
@@ -187,8 +190,9 @@ public class MainFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 setSleepModelSelectedStatus();
+                FunctionClickUtils.getInstance().isOpenSleepModel(true);
                 //存储睡眠模式
-                SPUtils.saveSleepModelData(getContext(), mUserName);
+                SPUtils.saveSleepModelData(getContext(), mUserName,  FunctionClickUtils.getInstance().getOpenSleepStatus());
                 return false;
             }
         });
@@ -196,6 +200,7 @@ public class MainFragment extends Fragment {
         mIvSleepModelDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FunctionClickUtils.getInstance().isOpenSleepModel(false);
                 mIvSleepModelSave.setVisibility(View.VISIBLE);
                 mIvSleepModelSaveSelected.setVisibility(View.GONE);
                 mIvSleepModelDelete.setVisibility(View.GONE);
@@ -211,7 +216,8 @@ public class MainFragment extends Fragment {
             public boolean onLongClick(View v) {
                 setOnKeyResetModelSelected();
                 //存储一键复位模式
-                SPUtils.saveOneKeyResetData(getContext(), mUserName);
+                FunctionClickUtils.getInstance().isOpenOneKeyResetModel(true);
+                SPUtils.saveOneKeyResetData(getContext(), mUserName, FunctionClickUtils.getInstance().getOpenOneKeyResetModel());
                 return false;
             }
         });
@@ -219,6 +225,7 @@ public class MainFragment extends Fragment {
         mIvOneKeyResetModelDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FunctionClickUtils.getInstance().isOpenOneKeyResetModel(false);
                 mIvOneKeyResetModelSave.setVisibility(View.VISIBLE);
                 mIvOneKeyResetModelSaveSelected.setVisibility(View.GONE);
                 mIvOneKeyResetModelDelete.setVisibility(View.GONE);

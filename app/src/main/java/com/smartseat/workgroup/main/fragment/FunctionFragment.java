@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.FunctionClickUtils;
 import com.smartseat.workgroup.common.utils.SPUtils;
 import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 import com.smartseat.workgroup.main.model.FunctionModel;
@@ -271,25 +272,29 @@ public class FunctionFragment extends Fragment {
                         setHeatingModelSelected();
                         openHeatingOneGearView();
                         mHeatingCount = 2;
-                        mFunctionModel.setHeatingGear(1);
+                        FunctionClickUtils.getInstance().setHeatingGear(1);
+                        mFunctionModel.setHeatingGear(FunctionClickUtils.getInstance().getHeatingGear());
                         //存储加热一档数据
                     } else if (mHeatingCount == 2) {//2
                         setHeatingModelSelected();
                         openHeatingTwoGearView();
                         mHeatingCount = 3;
-                        mFunctionModel.setHeatingGear(2);
+                        FunctionClickUtils.getInstance().setHeatingGear(2);
+                        mFunctionModel.setHeatingGear(FunctionClickUtils.getInstance().getHeatingGear());
                         //存储加热二档数据
                     } else if (mHeatingCount == 3) {//3
                         setHeatingModelSelected();
                         openHeatingThreeGearView();
                         mHeatingCount = 0;
+                        FunctionClickUtils.getInstance().setHeatingGear(3);
                         //存储加热三档数据
-                        mFunctionModel.setHeatingGear(3);
+                        mFunctionModel.setHeatingGear(FunctionClickUtils.getInstance().getHeatingGear());
                     } else {//0
                         //清除加热档位数据（一、二、三档位）
                         closeHeatingGearView();
                         mHeatingCount = 1;
-                        mFunctionModel.setHeatingGear(0);
+                        FunctionClickUtils.getInstance().setHeatingGear(0);
+                        mFunctionModel.setHeatingGear(FunctionClickUtils.getInstance().getHeatingGear());
                         mFunctionModel.setOpenHeatingGear(false);
                     }
                     SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
@@ -310,25 +315,29 @@ public class FunctionFragment extends Fragment {
                         setVentilationModelSelected();
                         openVentilationOneGearView();
                         mVentilationCount = 2;
+                        FunctionClickUtils.getInstance().setVentilationGear(1);
                         //存储通风一档数据
-                        mFunctionModel.setVentilationGear(1);
+                        mFunctionModel.setVentilationGear(FunctionClickUtils.getInstance().getVentilationGear());
                     } else if (mVentilationCount == 2) {
                         setVentilationModelSelected();
                         openVentilationTwoGearView();
                         mVentilationCount = 3;
+                        FunctionClickUtils.getInstance().setVentilationGear(2);
                         //存储通风二档数据
-                        mFunctionModel.setVentilationGear(2);
+                        mFunctionModel.setVentilationGear(FunctionClickUtils.getInstance().getVentilationGear());
                     } else if (mVentilationCount == 3) {
                         setVentilationModelSelected();
                         openVentilationThreeGearView();
                         mVentilationCount = 0;
+                        FunctionClickUtils.getInstance().setVentilationGear(3);
                         //存储通风三档数据
-                        mFunctionModel.setVentilationGear(3);
+                        mFunctionModel.setVentilationGear(FunctionClickUtils.getInstance().getVentilationGear());
                     } else {
                         closeVentilationGearView();
                         mVentilationCount = 1;
                         //清除通风档位数据（一、二、三档位）
-                        mFunctionModel.setVentilationGear(0);
+                        FunctionClickUtils.getInstance().setVentilationGear(0);
+                        mFunctionModel.setVentilationGear(FunctionClickUtils.getInstance().getVentilationGear());
                         mFunctionModel.setOpenVentilation(false);
                     }
                     SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
@@ -346,22 +355,25 @@ public class FunctionFragment extends Fragment {
                     mMassageCount = mFunctionModel.getMassageGear() + 1;
                     mFunctionModel.setOpenMassage(true);
                     if (mMassageCount == 1) {
+                        FunctionClickUtils.getInstance().setMassageGear(1);
                         setmRlMassageModelSelected();
                         openMassageOneGearView();
                         mMassageCount = 2;
                         //存储按摩一档数据
-                        mFunctionModel.setMassageGear(1);
+                        mFunctionModel.setMassageGear(FunctionClickUtils.getInstance().getMassageGear());
                     } else if (mMassageCount == 2) {
+                        FunctionClickUtils.getInstance().setMassageGear(2);
                         setmRlMassageModelSelected();
                         openMassageTwoGearView();
                         mMassageCount = 0;
                         //存储按摩二档数据
-                        mFunctionModel.setMassageGear(2);
+                        mFunctionModel.setMassageGear(FunctionClickUtils.getInstance().getMassageGear());
                     } else {
+                        FunctionClickUtils.getInstance().setMassageGear(0);
                         closeMassageGearView();
                         mMassageCount = 1;
                         //清除按摩档位数据（一、二档位）
-                        mFunctionModel.setMassageGear(0);
+                        mFunctionModel.setMassageGear(FunctionClickUtils.getInstance().getMassageGear());
                         mFunctionModel.setOpenMassage(false);
                     }
                     SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
@@ -380,14 +392,16 @@ public class FunctionFragment extends Fragment {
                         openAmbientShadowView();
                         setAmbientModelSelected();
                         mIsOpenVembientShadow = false;
+                        FunctionClickUtils.getInstance().isOpenVembient(true);
                         //存储氛围灯数据
-                        mFunctionModel.setOpenVembient(true);
+                        mFunctionModel.setOpenVembient(FunctionClickUtils.getInstance().getOpenVembient());
                     } else {
                         closeAmbientShadowView();
                         setAmbientModelUnSelected();
                         mIsOpenVembientShadow = true;
+                        FunctionClickUtils.getInstance().isOpenVembient(false);
                         //清除氛围灯数据
-                        mFunctionModel.setOpenVembient(false);
+                        mFunctionModel.setOpenVembient(FunctionClickUtils.getInstance().getOpenVembient());
                     }
                     SPUtils.putFunctionModel(getContext(), userName, mFunctionModel);
                 } else {

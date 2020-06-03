@@ -453,8 +453,8 @@ public class SPUtils {
      * @param context
      * @param username
      */
-    public static void saveSleepModelData(Context context, String username) {
-        SPUtils.put(context, "openSleep" + username, true);
+    public static void saveSleepModelData(Context context, String username,boolean isOpenSleepModel) {
+        SPUtils.put(context, "openSleep" + username, isOpenSleepModel);
     }
 
     /**
@@ -474,8 +474,8 @@ public class SPUtils {
      * @param context
      * @param username
      */
-    public static void saveOneKeyResetData(Context context, String username) {
-        SPUtils.put(context, "oneKeyRest" + username, true);
+    public static void saveOneKeyResetData(Context context, String username,boolean isOpenOneKeyResetModel) {
+        SPUtils.put(context, "oneKeyRest" + username, isOpenOneKeyResetModel);
     }
 
     /**

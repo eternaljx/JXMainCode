@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smartseat.workgroup.R;
+import com.smartseat.workgroup.common.utils.FunctionClickUtils;
 import com.smartseat.workgroup.common.utils.SPUtils;
 import com.smartseat.workgroup.main.activity.ConnectionDeviceActivity;
 import com.smartseat.workgroup.main.model.AdjustModel;
@@ -267,7 +268,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showKaobeiBeforeView();
                 //存储靠背向后节
-                mAdjustModel.setKaobeiBeforeFlag(1);
+                FunctionClickUtils.getInstance().setmKaobeiBeforeSwitch(1);
+                mAdjustModel.setKaobeiBeforeFlag(FunctionClickUtils.getInstance().getKaobeiBeforeSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -277,7 +279,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showKaobeiAfterView();
                 //存储靠背向前调节
-                mAdjustModel.setKaobeiAfterFlag(1);
+                FunctionClickUtils.getInstance().setmKaobeiAfterSwitch(1);
+                mAdjustModel.setKaobeiAfterFlag(FunctionClickUtils.getInstance().getKaobeiAfterSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -302,7 +305,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showTouzhenTopView();
                 //存储头枕向上调节
-                mAdjustModel.setTouzhenTopFlag(1);
+                FunctionClickUtils.getInstance().setTouzhenTopSwitch(1);
+                mAdjustModel.setTouzhenTopFlag(FunctionClickUtils.getInstance().getTouzhenTopSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -310,17 +314,18 @@ public class AdjustFragment extends Fragment {
         mViewToutuoBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    showTouzhenBottomView();
-                    //存储头枕向下调节
-                    mAdjustModel.setTouzhenBottomFlag(1);
-                    SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
+                showTouzhenBottomView();
+                //存储头枕向下调节
+                FunctionClickUtils.getInstance().setTouzhenBottomSwitch(1);
+                mAdjustModel.setTouzhenBottomFlag(FunctionClickUtils.getInstance().getTouzhenBottomSwitch());
+                SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
         //点击腰托事件，显示向上、向下、向左、向右布局（显示白色）
         mViewYaotuoClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (mIsLogin) {
+                if (mIsLogin) {
                     showYaotuoClickView();
                     //存储开启腰托调节
                     mAdjustModel.setOpenYaozhen(true);
@@ -337,7 +342,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showYaotuoTopView();
                 //存储腰托向上调节
-                mAdjustModel.setYaozhenTopFlag(1);
+                FunctionClickUtils.getInstance().setYaotuoTopSwitch(1);
+                mAdjustModel.setYaozhenTopFlag(FunctionClickUtils.getInstance().getYaotuoTopSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -347,7 +353,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showYaotuoBottomView();
                 //存储腰托向下调节
-                mAdjustModel.setYaozhenBottomFlag(1);
+                FunctionClickUtils.getInstance().setYaotuoBottomSwitch(1);
+                mAdjustModel.setYaozhenBottomFlag(FunctionClickUtils.getInstance().getYaotuoBottomSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -357,7 +364,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showYaotuoLeftView();
                 //存储腰托向左调节
-                mAdjustModel.setYaozhenLeftFlag(1);
+                FunctionClickUtils.getInstance().setYaotuoLeftSwitch(1);
+                mAdjustModel.setYaozhenLeftFlag(FunctionClickUtils.getInstance().getYaotuoLeftSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -367,7 +375,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showYaotuoRightView();
                 //存储腰托向右调节
-                mAdjustModel.setYaozhenRightFlag(1);
+                FunctionClickUtils.getInstance().setYaotuoRightSwitch(1);
+                mAdjustModel.setYaozhenRightFlag(FunctionClickUtils.getInstance().getYaotuoRightSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -392,7 +401,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showTuituoBeforeView();
                 //存储腿托向前调节
-                mAdjustModel.setTuituoBeforeFlag(1);
+                FunctionClickUtils.getInstance().setTuituoBeforeSwitch(1);
+                mAdjustModel.setTuituoBeforeFlag(FunctionClickUtils.getInstance().getTuituoBeforeSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -402,7 +412,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showTuituoAfterView();
                 //存储腿托向后调节
-                mAdjustModel.setTuituoAfterFlag(1);
+                FunctionClickUtils.getInstance().setTuituoAfterSwitch(1);
+                mAdjustModel.setTuituoAfterFlag(FunctionClickUtils.getInstance().getTuituoAfterSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -427,7 +438,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showQianhouBeforeView();
                 //存储座椅向前调节
-                mAdjustModel.setQianhouBeforeFlag(1);
+                FunctionClickUtils.getInstance().setQianhouBeforeSwitch(1);
+                mAdjustModel.setQianhouBeforeFlag(FunctionClickUtils.getInstance().getQianhouBeforeSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
@@ -437,7 +449,8 @@ public class AdjustFragment extends Fragment {
             public void onClick(View v) {
                 showQianhouAfterView();
                 //存储座椅向后调节
-                mAdjustModel.setQianhouAfterFlag(1);
+                FunctionClickUtils.getInstance().setQianhouBeforeSwitch(1);
+                mAdjustModel.setQianhouAfterFlag(FunctionClickUtils.getInstance().getQianhouAfterSwitch());
                 SPUtils.putAdjustModel(getContext(), username, mAdjustModel);
             }
         });
